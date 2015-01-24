@@ -6,7 +6,7 @@ package toolkit;
 
 import java.util.Hashtable;
 import edu.wpi.first.wpilibj.CANJaguar;
-import edu.wpi.first.wpilibj.can.CANTimeoutException;
+//import edu.wpi.first.wpilibj.can.CANTimeoutException;
 
 /**
  *
@@ -42,7 +42,7 @@ public class CANJaguarFactory {
         else {
             try {
                 canJag = new CANJaguar(_id);
-            } catch (CANTimeoutException ex) {
+            } catch (Exception ex) {
                 ex.printStackTrace();
             }
             canJagMap.put(id, canJag);
@@ -58,15 +58,15 @@ public class CANJaguarFactory {
         if(exists) {
             canJag = (CANJaguar)canJagMap.get(id);
             try {
-                canJag.changeControlMode(_controlMode);
-            } catch (CANTimeoutException ex) {
+            //    canJag.changeControlMode(_controlMode);
+            } catch (Exception ex) {
                 ex.printStackTrace();
             }
         }
         else {
             try {
-                canJag = new CANJaguar(_id, _controlMode);
-            } catch (CANTimeoutException ex) {
+              //  canJag = new CANJaguar(_id, _controlMode);
+            } catch (Exception ex) {
                 ex.printStackTrace();
             }
             canJagMap.put(id, canJag);

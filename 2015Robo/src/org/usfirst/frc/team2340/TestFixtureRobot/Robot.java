@@ -1,5 +1,6 @@
 package org.usfirst.frc.team2340.TestFixtureRobot;
 
+import toolkit.LogitechF310;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
@@ -14,7 +15,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
  */
 public class Robot extends IterativeRobot {
 	RobotDrive myRobot;
-	Joystick stick;
+	LogitechF310 joyStick;
 	int autoLoopCounter;
 	
     /**
@@ -23,7 +24,7 @@ public class Robot extends IterativeRobot {
      */
     public void robotInit() {
     	myRobot = new RobotDrive(0,1);
-    	stick = new Joystick(0);
+    	joyStick = new LogitechF310("Driver JoyStick", 0);
     }
     
     /**
@@ -56,7 +57,7 @@ public class Robot extends IterativeRobot {
      * This function is called periodically during operator control
      */
     public void teleopPeriodic() {
-        myRobot.arcadeDrive(stick);
+      //  myRobot.arcadeDrive(joyStick);
     }
     
     /**

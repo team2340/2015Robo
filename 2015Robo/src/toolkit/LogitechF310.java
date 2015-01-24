@@ -13,12 +13,13 @@ package toolkit;
  * and open the template in the editor.
  */
 
+import definitions.robotDefinitions;
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.Watchdog;
+//import edu.wpi.first.wpilibj.Watchdog;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import team2340.TritonDefinitions;
+//import team2340.robotDefinitions;
 
 /**
  *
@@ -40,7 +41,7 @@ public class LogitechF310 implements Runnable {
     Button buttonStart;
     double min = 0.04;
     private String buttonPressed = "NO";
-    Logger logger;
+    // logger;
     
     String name;
 
@@ -50,19 +51,19 @@ public class LogitechF310 implements Runnable {
         this.port = port;
         this.name = name;
         joystick = new Joystick(port);
-        buttonX = new JoystickButton(joystick, TritonDefinitions.BUTTON_X);
-        buttonY = new JoystickButton(joystick, TritonDefinitions.BUTTON_Y);
-        buttonA = new JoystickButton(joystick, TritonDefinitions.BUTTON_A);
-        buttonB = new JoystickButton(joystick, TritonDefinitions.BUTTON_B);
-        buttonLB = new JoystickButton(joystick, TritonDefinitions.BUTTON_LB);
-        buttonRB = new JoystickButton(joystick, TritonDefinitions.BUTTON_RB);
-        buttonLT = new JoystickButton(joystick, TritonDefinitions.BUTTON_LT);
-        buttonRT = new JoystickButton(joystick, TritonDefinitions.BUTTON_RT);
-        buttonBack = new JoystickButton(joystick, TritonDefinitions.BUTTON_BACK);
-        buttonStart = new JoystickButton(joystick, TritonDefinitions.BUTTON_START);
+        buttonX = new JoystickButton(joystick, robotDefinitions.BUTTON_X);
+        buttonY = new JoystickButton(joystick, robotDefinitions.BUTTON_Y);
+        buttonA = new JoystickButton(joystick, robotDefinitions.BUTTON_A);
+        buttonB = new JoystickButton(joystick, robotDefinitions.BUTTON_B);
+        buttonLB = new JoystickButton(joystick, robotDefinitions.BUTTON_LB);
+        buttonRB = new JoystickButton(joystick, robotDefinitions.BUTTON_RB);
+        buttonLT = new JoystickButton(joystick, robotDefinitions.BUTTON_LT);
+        buttonRT = new JoystickButton(joystick, robotDefinitions.BUTTON_RT);
+        buttonBack = new JoystickButton(joystick, robotDefinitions.BUTTON_BACK);
+        buttonStart = new JoystickButton(joystick, robotDefinitions.BUTTON_START);
         
         runner = new Thread(this, name);
-        logger = Logger.getInstance();
+   //     logger = Logger.getInstance();
         SmartDashboard.putBoolean(name, false);
     }
     
@@ -71,7 +72,7 @@ public class LogitechF310 implements Runnable {
     }
 
     public boolean getX() {
-        return joystick.getRawButton(TritonDefinitions.BUTTON_X);
+        return joystick.getRawButton(robotDefinitions.BUTTON_X);
 
     }
 
@@ -80,7 +81,7 @@ public class LogitechF310 implements Runnable {
     }
     
     public boolean getY() {
-        return joystick.getRawButton(TritonDefinitions.BUTTON_Y);
+        return joystick.getRawButton(robotDefinitions.BUTTON_Y);
     }
     
     public Button getYButton() {
@@ -88,7 +89,7 @@ public class LogitechF310 implements Runnable {
     }
 
     public boolean getA() {
-        return joystick.getRawButton(TritonDefinitions.BUTTON_A);
+        return joystick.getRawButton(robotDefinitions.BUTTON_A);
     }
     
     public Button getAButton() {
@@ -96,7 +97,7 @@ public class LogitechF310 implements Runnable {
     }
 
     public boolean getB() {
-        return joystick.getRawButton(TritonDefinitions.BUTTON_B);
+        return joystick.getRawButton(robotDefinitions.BUTTON_B);
     }
 
     public Button getBButton() {
@@ -104,7 +105,7 @@ public class LogitechF310 implements Runnable {
     }
     
     public boolean getLB() {
-        return joystick.getRawButton(TritonDefinitions.BUTTON_LB);
+        return joystick.getRawButton(robotDefinitions.BUTTON_LB);
     }
 
     public Button getLBButton() {
@@ -112,7 +113,7 @@ public class LogitechF310 implements Runnable {
     }
     
     public boolean getRB() {
-        return joystick.getRawButton(TritonDefinitions.BUTTON_RB);
+        return joystick.getRawButton(robotDefinitions.BUTTON_RB);
     }
 
     public Button getRBButton() {
@@ -120,7 +121,7 @@ public class LogitechF310 implements Runnable {
     }
     
     public boolean getLT() {
-        return joystick.getRawButton(TritonDefinitions.BUTTON_LT);
+        return joystick.getRawButton(robotDefinitions.BUTTON_LT);
     }
 
     public Button getLTButton() {
@@ -128,7 +129,7 @@ public class LogitechF310 implements Runnable {
     }
     
     public boolean getRT() {
-        return joystick.getRawButton(TritonDefinitions.BUTTON_RT);
+        return joystick.getRawButton(robotDefinitions.BUTTON_RT);
     }
     
     public Button getRTButton() {
@@ -136,7 +137,7 @@ public class LogitechF310 implements Runnable {
     }
 
     public boolean getBack() {
-        return joystick.getRawButton(TritonDefinitions.BUTTON_BACK);
+        return joystick.getRawButton(robotDefinitions.BUTTON_BACK);
     }
 
     public Button getBackButton() {
@@ -144,7 +145,7 @@ public class LogitechF310 implements Runnable {
     }
     
     public boolean getStart() {
-        return joystick.getRawButton(TritonDefinitions.BUTTON_START);
+        return joystick.getRawButton(robotDefinitions.BUTTON_START);
     }
     
     public Button getStartButton() {
@@ -197,7 +198,7 @@ public class LogitechF310 implements Runnable {
         if (getY()) {
             System.out.println("F310 on " + port + " - Y is pushed");
         }
-        Watchdog.getInstance().feed();
+    //    Watchdog.getInstance().feed();
         if (getA()) {
             System.out.println("F310 on " + port + " - A is pushed");
         }
@@ -213,29 +214,29 @@ public class LogitechF310 implements Runnable {
         if (getLT()) {
             System.out.println("F310 on " + port + " - LT is pushed");
         }
-        Watchdog.getInstance().feed();
+   //     Watchdog.getInstance().feed();
         if (getRT()) {
             System.out.println("F310 on " + port + " - RT is pushed");
         }
-        Watchdog.getInstance().feed();
+     //   Watchdog.getInstance().feed();
         if (getBack()) {
             System.out.println("F310 on " + port + " - Back is pushed");
         }
-        Watchdog.getInstance().feed();
+  //      Watchdog.getInstance().feed();
         if (getStart()) {
             System.out.println("F310 on " + port + " - Start is pushed");
         }
-        Watchdog.getInstance().feed();
+  //      Watchdog.getInstance().feed();
         Direction dPadDir = getDPad();
         if (dPadDir.getX() != 0 || dPadDir.getY() != 0) {
             System.out.println("F310 on " + port + " - DPad x=" + dPadDir.getX() + ", y=" + dPadDir.getY());
         }
-        Watchdog.getInstance().feed();
+   //     Watchdog.getInstance().feed();
         Direction leftDir = getLeftStick();
         if (leftDir.getX() != 0 || leftDir.getY() != 0) {
             System.out.println("F310 on " + port + " - left stick x=" + leftDir.getX() + ", y=" + leftDir.getY());
         }
-        Watchdog.getInstance().feed();
+    //    Watchdog.getInstance().feed();
         Direction rightDir = getRightStick();
         if (rightDir.getX() != 0 || rightDir.getY() != 0) {
             System.out.println("F310 on " + port + " - right stick x=" + rightDir.getX() + ", y=" + rightDir.getY());
