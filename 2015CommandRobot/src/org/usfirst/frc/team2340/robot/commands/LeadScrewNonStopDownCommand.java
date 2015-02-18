@@ -1,15 +1,8 @@
 package org.usfirst.frc.team2340.robot.commands;
 
-import org.usfirst.frc.team2340.robot.Robot;
-
 import edu.wpi.first.wpilibj.command.Command;
-	
-public class AcquateCommand extends Command {
-	public AcquateCommand() {
-		requires(Robot.acquisition);
-		setTimeout(0.5);
-		
-	}
+
+public class LeadScrewNonStopDownCommand extends Command {
 
 	@Override
 	protected void initialize() {
@@ -19,24 +12,18 @@ public class AcquateCommand extends Command {
 
 	@Override
 	protected void execute() {
-		System.out.println(" Test Execute");
-		Robot.acquisition.close();
-		
-		Robot.acquisition.open2();
+		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	protected boolean isFinished() {
 		// TODO Auto-generated method stub
-		return isTimedOut();
+		return false;
 	}
 
 	@Override
 	protected void end() {
-		System.out.println(" End Execute");
-		Robot.acquisition.close2();
-		Robot.acquisition.open();
 		// TODO Auto-generated method stub
 
 	}

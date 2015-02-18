@@ -35,4 +35,10 @@ public class RobotMap {
 	public static final int BACK_RIGHT_JAG_ID = 2;
 	public static final int LEAD_SCREW_ONE_ID = 6;
 	public static final int LEAD_SCREW_TWO_ID = 7;
+	
+	public static final double TANK_DRIVE_HALF_SPEED = 0.5;
+	public static final double TANK_DRIVE_THIRD_SPEED = 0.33;
+	public static final double TANK_DRIVE_THREE_QUARTER_SPEED = 0.75;
+	public static final double LEAD_SCREW_UP_SPEED = 0.8;
+	public static final double LEAD_SCREW_DOWN_SPEED = 0.8;
 }

@@ -8,6 +8,8 @@ import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.hal.CanTalonSRX;
+import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class DriveSubsystem extends Subsystem {
 
@@ -21,6 +23,9 @@ public class DriveSubsystem extends Subsystem {
     CANTalon frontRight;
     
     RobotDrive tankDrive;
+    
+   // LiveWindow lw;
+    
   
 
     static public DriveSubsystem getInstance() {
@@ -36,7 +41,7 @@ public class DriveSubsystem extends Subsystem {
     }
 
     private DriveSubsystem() {
-	
+
         createLeftSide();
         createRightSide();
         
@@ -60,6 +65,7 @@ public class DriveSubsystem extends Subsystem {
     private void createRightSide() {
     	try {
     	frontRight = new CANTalon(RobotMap.FRONT_RIGHT_JAG_ID);
+    	
     	backRight = new CANTalon(RobotMap.BACK_RIGHT_JAG_ID);
     	backRight.changeControlMode(CANTalon.ControlMode.Follower);
     	backRight.set(RobotMap.FRONT_RIGHT_JAG_ID);
@@ -69,11 +75,22 @@ public class DriveSubsystem extends Subsystem {
     	}
     }
     
-    public void setTankSpeed(Direction leftDirection, Direction rightDirection){
-    	tankDrive.tankDrive(leftDirection.x, rightDirection.x);
+    public void setTankSpeedFull(Direction leftDirection, Direction rightDirection){
+    	tankDrive.tankDrive(-1 * leftDirection.x, -1 * rightDirection.x, true);
+    	
     }
+    public void setTankSpeedHalf(Direction leftDirection, Direction rightDirection){
+    	tankDrive.tankDrive( -1 * leftDirection.x * RobotMap.TANK_DRIVE_HALF_SPEED, -1 * rightDirection.x*RobotMap.TANK_DRIVE_HALF_SPEED, true);
+    }
+    public void setTankSpeedThreeQuarters(Direction leftDirection, Direction rightDirection){
+    	tankDrive.tankDrive(-1 * leftDirection.x * RobotMap.TANK_DRIVE_THREE_QUARTER_SPEED, -1 * rightDirection.x*RobotMap.TANK_DRIVE_THREE_QUARTER_SPEED, true);
 
-
- 
-
+    }
+    public void setTankSpeedOneThird(Direction leftDirection, Direction rightDirection){
+    	
+    	tankDrive.tankDrive(-1 * leftDirection.x * RobotMap.TANK_DRIVE_THIRD_SPEED, -1 * rightDirection.x* RobotMap.TANK_DRIVE_THIRD_SPEED, true);
+    	SmartDashboard.putNumber("leftTank", frontRight.get());
+    	SmartDashboard.putNumber("rightTank", frontLeft.get());
+    }
 }
+

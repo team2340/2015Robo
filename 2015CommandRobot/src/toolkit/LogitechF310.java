@@ -161,8 +161,8 @@ public class LogitechF310 implements Runnable {
     }
 
     public Direction getLeftStick() {
-        return new Direction(limit(joystick.getRawAxis(1)),
-                (-1 * limit(joystick.getRawAxis(2))));
+        return new Direction((joystick.getRawAxis(1)),
+                (-1 * (joystick.getRawAxis(2))));
     }
     
     public double getMag() {
@@ -174,8 +174,8 @@ public class LogitechF310 implements Runnable {
     }
 
     public Direction getRightStick() {
-        return new Direction(limit(joystick.getRawAxis(3)),
-                (-1 * limit(joystick.getRawAxis(4))));
+        return new Direction((joystick.getRawAxis(3)),
+                (-1 * (joystick.getRawAxis(4))));
     }
 
     private double limit(double value) {

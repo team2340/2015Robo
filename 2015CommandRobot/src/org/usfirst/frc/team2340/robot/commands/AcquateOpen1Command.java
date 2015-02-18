@@ -1,28 +1,27 @@
 package org.usfirst.frc.team2340.robot.commands;
 
 import org.usfirst.frc.team2340.robot.Robot;
-import org.usfirst.frc.team2340.robot.RobotMap;
-import org.usfirst.frc.team2340.robot.subsystems.LeadScrewSystem;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class LeadScrewUpCommand extends Command {
-	public LeadScrewUpCommand() {
-		requires(Robot.lead);
-		setTimeout(RobotMap.LEAD_SCREW_UP_SPEED);
+public class AcquateOpen1Command extends Command {
+
+	public AcquateOpen1Command(){
+		requires(Robot.acquisition);
+		setTimeout(0.25);
 		
 	}
-	
-
 	@Override
 	protected void initialize() {
-		Robot.lead.driveUp();
+		Robot.acquisition.open();
+		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	protected void execute() {
-		
+		// TODO Auto-generated method stub
+
 	}
 
 	@Override
@@ -33,13 +32,14 @@ public class LeadScrewUpCommand extends Command {
 
 	@Override
 	protected void end() {
-		Robot.lead.stop();
+	
+		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	protected void interrupted() {
-		Robot.lead.stop();
+		// TODO Auto-generated method stub
 
 	}
 

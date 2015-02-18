@@ -37,11 +37,16 @@ public class AcquisitionSubsystem extends Subsystem {
 	public void open(){
 		System.out.println("Open command");
 		festioSolenoid.set(true);
-		festioSolenoid2.set(true);
 	}
 	public void close(){
 		System.out.println("Close command");
 		festioSolenoid.set(false);
+	}
+	public void open2(){
+		festioSolenoid2.set(true);
+	}
+	public void close2(){
 		festioSolenoid2.set(false);
 	}
+	
 }
